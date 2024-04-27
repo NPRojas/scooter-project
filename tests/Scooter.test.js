@@ -28,26 +28,22 @@ describe('scooter methods', () => {
     expect(scootey.station).toBe(null);
   })
 
-  test("throw an error due to uncharged scooter", () => {
+  test("error due to uncharged scooter", () => {
     scootey.charge = 15;
-    expect(() => {
-      scootey.rent(Amanda)
-    }).toThrow("This scooter needs charge. Please select another one from dock.");
+    expect(scootey.rent(Amanda)).toBe("This scooter needs charge. Please select another one from dock.");
   })
 
-  test("throw and error due to damanged scooter", () => {
+  test("error due to damanged scooter", () => {
     scootey.isBroken = true;
-    expect(() => {
-      scootey.rent(Amanda)
-    }).toThrow("This scooter is broken. Please select another one from the dock.");
+    expect(scootey.rent(Amanda)).toBe("This scooter is broken. Please select another one from the dock.");
   })
-  
+
   // dock method
   test("return scooter to station and clear user", () => {
     scootey.rent(Amanda);
     scootey.dock("Grayson Sqaure");
     expect(scootey.user).toBe(null);
-    expect(scootey.station).toBe("Greyson Sqaure");
+    expect(scootey.station).toBe("Grayson Sqaure");
   })
 
   // requestRepair method

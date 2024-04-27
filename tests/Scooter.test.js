@@ -13,7 +13,11 @@ describe('scooter methods', () => {
   // tests here!
 
   // rent method
-
+  test("checkout to User if scooter is charged above 20% and not broken", () =>{
+    const scootey = new Scooter("Binghamton Station");
+    scootey.charge = 75;
+    scootey.isBroken = false;
+  })
   // dock method
 
   // requestRepair method

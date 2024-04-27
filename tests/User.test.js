@@ -19,7 +19,7 @@ describe('User property tests', () => {
 })
 
 describe("User login/logout test", () => {
-  
+
   // test login
   test("login User if password is correct", () => {
     user.login("test123");

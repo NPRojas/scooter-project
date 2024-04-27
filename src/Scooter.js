@@ -1,11 +1,11 @@
 class Scooter {
   // scooter code here
+  static nextSerial = 1;
   constructor(station) {
     this.station = station;
     this.user = null;
     // UNSURE OF WHAT THIS IS FOR
-    this.serial;
-    this.nextSerial = 1;
+    this.serial = Scooter.nextSerial++;
     this.charge = 100;
     this.isBroken = false;
   }

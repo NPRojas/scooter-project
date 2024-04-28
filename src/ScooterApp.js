@@ -99,6 +99,7 @@ class ScooterApp {
        this.stations[station].push(scooter);
        // dock it, which clears the user and updates station var
        scooter.dock(station);
+       console.log("Scooter is docked");
     } else if (this.stations.hasOwnProperty(station) === false) {
        console.log("Station does not exist");
     } else if (scooter.station == station) {
@@ -119,6 +120,7 @@ class ScooterApp {
     scooterStation.splice(index, 1);
     // rent it out to the user
     scooter.rent(user);
+    console.log("Scooter is successfully rented");
   }
 
   print(){

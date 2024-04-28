@@ -94,8 +94,36 @@ class ScooterApp {
   }
 
   dockScooter(scooter, station) {
-    // add the scooter to the stations list
-    // dock it 
+    if(this.stations.hasOwnProperty(station) && scooter.station === null) {
+       // add the scooter to the stations list
+       this.stations[station].push(scooter);
+       // dock it, which clears the user and updates station var
+       scooter.dock(station);
+    } else if (this.stations.hasOwnProperty(station) === false) {
+       console.log("Station does not exist");
+    } else if (scooter.station == station) {
+       console.log("Scooter is already docked at the station");
+    }
+  }
+
+  rentScooter(scooter, user) {
+    if(scooter.station === null && scooter.user) {
+      console.log("Scooter is currently rented out");
+    }
+    // locate the scooter in the station and remove it from the list
+    // access the array of scooters using station key
+    const scooterStation =  this.stations[scooter.station];
+    // cross reference the scooter's serial number to serial number of listed scooters in the station
+    const index = scooterStation.findIndex(listedScooter => listedScooter.serial === scooter.serial);
+    // use the found index to remove scooter from the list 
+    scooterStation.splice(index, 1);
+    // rent it out to the user
+    scooter.rent(user);
+  }
+
+  print(){
+    console.log(this.registeredUsers);
+    console.log(this.stations);
   }
 
 }

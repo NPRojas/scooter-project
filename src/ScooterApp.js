@@ -7,26 +7,12 @@ class ScooterApp {
   constructor() {
     this.stations = { 
 
-    "Antigua": [
-      new Scooter("Antigua"),
-      new Scooter("Antigua"),
-      new Scooter("Antigua")
-    ],
+    "Antigua": [],
 
-    "Candyland": [
-      new Scooter("Candyland"),
-      new Scooter("Candyland"),
-      new Scooter("Candyland"),
-      new Scooter("Candyland")
-    ],
+    "Candyland": [],
 
-    "Narnia": [
-      new Scooter("Narnia"),
-      new Scooter("Narnia"),
-      new Scooter("Narnia"),
-      new Scooter("Narnia"),
-      new Scooter("Narnia")
-    ]};
+    "Narnia": []
+  };
 
     this.registeredUsers = {
       "Alice1": new User("Alice1", "password1", 25),

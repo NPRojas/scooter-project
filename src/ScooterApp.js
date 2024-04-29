@@ -65,7 +65,7 @@ class ScooterApp {
     if (this.registeredUsers.hasOwnProperty(username) && this.registeredUsers[username].password === password) {
       this.registeredUsers[username].login(password);
       console.log("User has been logged in");
-    } else if (this.registeredUsers.hasOwnProperty(username) && this.registerUsers[username].password !== password) {
+    } else if (this.registeredUsers.hasOwnProperty(username) && this.registeredUsers[username].password !== password) {
       console.log("Password is incorrect");
     } else if (this.registeredUsers.hasOwnProperty(username) === false) {
       console.log("Username not found");
@@ -108,14 +108,14 @@ class ScooterApp {
   }
 
   rentScooter(scooter, user) {
-    if(scooter.station === null && scooter.user) {
+    if(scooter.station == null || scooter.user !== null) {
       console.log("Scooter is currently rented out");
-    }
+    } 
     // locate the scooter in the station and remove it from the list
     // access the array of scooters using station key
     const scooterStation =  this.stations[scooter.station];
     // cross reference the scooter's serial number to serial number of listed scooters in the station
-    const index = scooterStation.findIndex(listedScooter => listedScooter.serial === scooter.serial);
+    const index = scooterStation.findIndex(listedScooter => listedScooter.serial == scooter.serial);
     // use the found index to remove scooter from the list 
     scooterStation.splice(index, 1);
     // rent it out to the user
